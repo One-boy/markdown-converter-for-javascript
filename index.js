@@ -1,2 +1,2 @@
-var JSWidgets = require('src/md');
-module.export = JSWidgets; 
+var JSWidgets = require('./src/md');
+module.exports = JSWidgets; 
