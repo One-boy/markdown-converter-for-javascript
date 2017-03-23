@@ -325,5 +325,3 @@ JSWidgets.markdown.converter = function () {
         return text;
     }
 }
-
-module.exports = JSWidgets;
