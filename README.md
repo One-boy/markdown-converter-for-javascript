@@ -11,8 +11,9 @@ if(typeof window.JSWidgets.markdown == "object"){
     var result = md.buildToHTML(mdText);
 }
 ```
-- 3.可引入的类样式类已加默认值如下：
+- 3.可引入的样式类以及默认值如下：
 ```
+{
             h1:"md-h1",
             h2:"md-h2",
             h3:"md-h3",
@@ -43,6 +44,7 @@ if(typeof window.JSWidgets.markdown == "object"){
             backlog: "md-backlog",
             //已办
             completed: "md-completed"
+}
 
 ```
 ---
