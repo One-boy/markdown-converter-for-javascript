@@ -13,6 +13,7 @@ if(typeof window.JSWidgets.markdown == "object"){
 ```
  */
 //js工具集命名空间
+
 var JSWidgets = window.JSWidgets || {};
 //markdown命名空间
 JSWidgets.markdown = JSWidgets.markdown || {};
