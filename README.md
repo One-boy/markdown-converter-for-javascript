@@ -1,7 +1,7 @@
 # markdown-converter-for-javascript
 瞎折腾，一个md解析器，功能是把md格式文本解析为html。
 ## 用法：
-- 1.引入js文件
+- 1.引入dest/md.min.js文件
 - 2.传入待转换的md格式文本，如下：
 ```
 if(typeof window.JSWidgets.markdown == "object"){
