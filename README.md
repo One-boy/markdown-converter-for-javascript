@@ -1,17 +1,29 @@
 # markdown-converter-for-javascript
-瞎折腾，一个md解析器，功能是把md格式文本解析为html。
-## 用法：
-- 1.引入dest/md.min.js文件
-- 2.传入待转换的md格式文本，如下：
+## 一、介绍
+- 一个markdown文本的javascript解析器，功能是把md格式文本解析为html
+- 主要用于我自己编写笔记或博客时的转换
+- 目录介绍
+    - src/md.js -- 解析库js源文件
+    - dest/md.min.js -- 压缩后的js库
+    - src/_markdown.scss -- 匹配的markdown样式库scss源文件
+    - dest/md.css -- 编译后的样式库
+
+## 二、用法(usage)：
+#### 1.引入dest/md.min.js文件
+#### 2.使用，如下
 ```
 if(typeof window.JSWidgets.markdown == "object"){
     var md = new JSWidgets.markdown.convert();
-    //样式可以引入自定义的样式类，使用
-    //md.setHTMLClass({h1:"my-class-h1",h2:"my-class-h2"})
+    var mdText = "# 标题1\n ##标题2";
     var result = md.buildToHTML(mdText);
+    console.log(result);
 }
 ```
-- 3.可引入的样式类以及默认值如下：
+#### 3.转换后的HTML文档没有样式，比较难看，`dest/md.css`是一份简洁的样式库，可使界面更美观
+#### 4.每个标签（如h1、em），默认都一个css类
+- css类，也是可以自定义的，使用setHTMLClass()方法，如下：
+> md.setHTMLClass({h1:"my-class-h1",h2:"my-class-h2"}); //这里只改变了h1和h2的css类，其它还是默认。
+- 可以传入的全部css类如下，引号中为默认值：
 ```
 {
             h1:"md-h1",
@@ -35,6 +47,7 @@ if(typeof window.JSWidgets.markdown == "object"){
             bold: "md-bold",
             table: "md-table",
             ul: "md-ul",
+            line:"md-line",
             //大段代码中的每一行。
             highLight:"md-high-light",
 
@@ -48,8 +61,8 @@ if(typeof window.JSWidgets.markdown == "object"){
 
 ```
 ---
-## 目前所实现的功能：
-#### 一、md格式文本转换成html结构。
+## 三、目前所实现的功能：
+#### 1.md格式文本转换成html结构。
 - 1.标题1-6，
 ```
 #-######

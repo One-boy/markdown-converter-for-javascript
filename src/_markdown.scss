@@ -1,0 +1,138 @@
+
+//markdown样式库,配合md.js生成的html默认类。
+//参照github的样式
+
+//字体颜色-灰色
+$gey-color:#6a737d;
+//浅灰色,用着分割线等
+$light-grey:#eaecef;
+//一行与上一行的距离
+$line-margin-top:.5em;
+//代码背景颜色
+$code-background-color:#f6f8fa;
+//重置一些浏览器默认样式
+blockquote{
+    margin: 0;
+}
+table{
+    //边框合并
+    border-collapse: collapse;
+    border-spacing: 0;//相邻边框之间的距离，仅用于边框分离模式，即collapse属性是separete
+}
+//外层包裹类,设置下大小，以便用em
+.md-body{
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    color: #24292e;
+    background-color: #fff;
+    padding-left: 1em;
+    //行间距
+    h1,h2,h3,h4,h5{
+        line-height: 1.25;
+    }
+}
+
+//h1和h2添加一根底部线
+.md-h1{
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $light-grey;
+}
+.md-h2{
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $light-grey;
+}
+.md-h3{
+    font-size: 1.25em;
+}
+.md-h4{
+    font-size: 1em;
+}
+.md-h5{
+    font-size: 0.875em;
+}
+//h6颜色变灰
+.md-h6{
+    font-size: 0.85em;
+    color: $gey-color;
+}
+//下划线
+.md-underline{
+    text-decoration: underline;
+}
+//标记
+.md-mark{
+    background-color: #d5bb26;
+    color: $gey-color;
+}
+//一小段代码块
+.md-code{
+    padding: 0.32em;
+    background-color: $code-background-color;
+    border-radius: 3px;
+    font-size: 85%;
+}
+//引用
+.md-blockquote{
+    padding-left: 1em;
+    border-left: 0.25em solid #dfe2e5;
+    color: $gey-color;
+    margin-top:$line-margin-top;
+}
+//hr分割线
+.md-hr{
+    border: 0;
+    height: .25em;
+    background-color: $light-grey;
+    margin: 24px 0;
+}
+//链接
+.md-link{
+    text-decoration: none;
+    color: #0366d6;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+//图片
+.md-image{
+    //限制下图片占用父容器的大小
+    max-width: 100%;
+}
+//待办和已办
+.md-backlog,.md-completed{
+    margin-top:$line-margin-top;
+    input{
+        //行内元素用此属性放在父元素的中部
+        vertical-align: middle;
+    }
+}
+//大段代码
+.md-pre{
+    background-color: $code-background-color;
+    padding: .5em 1em;
+    font-size: 0.85em;
+    p{font-family:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;}
+}
+//table
+.md-table{
+    margin-top: $line-margin-top;
+   tr{
+        th,td{
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        } 
+        //偶数行添加背景色
+        &:nth-child(2n){
+            background-color: $code-background-color;
+        }
+   }
+}
+
+//ul
+.md-ul{
+    li{
+        line-height: 1.5em;
+    }
+}

@@ -13,7 +13,6 @@ if(typeof window.JSWidgets.markdown == "object"){
 ```
  */
 //js工具集命名空间
-
 var JSWidgets = window.JSWidgets || {};
 //markdown命名空间
 JSWidgets.markdown = JSWidgets.markdown || {};
@@ -47,7 +46,9 @@ JSWidgets.markdown.converter = function () {
         text = doBeginHandler(text);
         //表格处理
         text = doTable(text);
-        return text;
+        //其余行加p标签
+        text = doOther(text);
+        return "<div class='md-body'>"+text+'</div>';
 
     }
     //文本每一行开头正则匹配
@@ -78,6 +79,7 @@ JSWidgets.markdown.converter = function () {
             bold: newHTMLClass.bold || "md-bold",
             table: newHTMLClass.table || "md-table",
             ul: newHTMLClass.ul || "md-ul",
+            line:newHTMLClass.line || "md-line",
             //大段代码中的每一行。
             highLight: newHTMLClass.highLight || "md-high-light",
 
@@ -138,13 +140,13 @@ JSWidgets.markdown.converter = function () {
             //图片
             name: "image",
             pattern: /\!\[(.*)\]\((.*)\)/g,
-            HTML: "<img class='" + HTMLClass.image + "' src='$2' title='$1'>"
+            HTML: "<img class='" + HTMLClass.image + "' src='$2' alt='$1' title='$1'>"
         },
         {
             //链接
             name: "link",
             pattern: /\[(.*)\]\((.*)\)/g,
-            HTML: "<a href='$2' class='" + HTMLClass.link + "'>$1</a>"
+            HTML: "<a href='$2' target='_blank' class='" + HTMLClass.link + "'>$1</a>"
         },
         {
             //加粗，中间内容除了*重复多次
@@ -264,7 +266,7 @@ JSWidgets.markdown.converter = function () {
         var p = /^`{3}[\n]{1,}((?:(.)|\n)*?)`{3}$/gm;
         text = text.replace(p, function (wholeMatch, m1) {
             var result = doHighLight(m1);
-            return "<pre class='" + HTMLClass.pre + "'><code class='" + HTMLClass.code + "'>" + result + "</code></pre>";
+            return "<pre class='" + HTMLClass.pre + "'><code>" + result + "</code></pre>";
         });
         return text;
     }
@@ -322,6 +324,13 @@ JSWidgets.markdown.converter = function () {
                 return "<li style='list-style:none;'>" + result + "</li>";
             }
         });
+        return text;
+    }
+    //其余行加p标签
+    function doOther(text){
+        //不是\n和<开头的行，加p标签
+        var p = /(^[^\n<].*)/gm;
+        text = text.replace(p,"<p class='"+HTMLClass.line+"'>$1</p>");
         return text;
     }
 }
