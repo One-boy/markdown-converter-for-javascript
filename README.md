@@ -7,6 +7,7 @@
     - dest/md.min.js -- 压缩后的js库
     - src/_markdown.scss -- 匹配的markdown样式库scss源文件
     - dest/md.css -- 编译后的样式库
+    - demo/* -- 一个demo，点开可以看到效果
 
 ## 二、用法(usage)：
 #### 1.引入dest/md.min.js文件

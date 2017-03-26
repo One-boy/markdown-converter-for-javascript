@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta metA http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MarkDown</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="box">
+    <div class="leftbox">
+      <div>
+        <textarea name="mdText" id="mdText"  rows="35"># 标题1
+## 标题2
+### 标题3
+#### 标题4
+##### 标题5
+###### 标题6
+
+一些行内功能：**加粗***斜体*++下划线++==标记==`code一行代码块`
+>引用一段文本,引用一段文本,引用一段文本,引用一段文本,引用一段文本,引用一段文本,引用一段文本,引用一段文本,引用一段文本。
+
+---
+
+上面是分隔线
+
+- 无序列表1
+- 无序列表2
+  - 列表
+    - 列表
+1. 列表
+2. 列表
+3. 列表
+
+[链接](http://note.youdao.com/)
+![图片](http://note.youdao.com/favicon.ico)
+
+- [ ] 待办
+- [x] 已办
+
+header 1 | header 2
+---|---
+row 1 col 1 | row 1 col 2
+row 2 col 1 | row 2 col 2
+```
+fsdfsfsd
+```
+测试。。。。。
+```
+多行代码块
+大段代码块
+```</textarea>
+      </div>
+      <div>
+        <input type="button" value="运行" id="runMd">
+      </div>
+    </div>
+    <div class="rightbox">
+        <div class="preview" id="previewContainer">
+
+        </div>
+    </div>
+  </div>
+</body>
+<script src="js/require.js" data-main="js/main"></script>
+</html>
