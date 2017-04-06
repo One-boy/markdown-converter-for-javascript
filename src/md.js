@@ -71,7 +71,6 @@ JSWidgets.markdown.converter = function () {
             blockquote: newHTMLClass.blockquote || "md-blockquote",
             //斜体
             em: newHTMLClass.em || "md-em",
-            hr: newHTMLClass.hr || "md-hr",
             image: newHTMLClass.image || "md-image",
             link: newHTMLClass.link || "md-link",
             code: newHTMLClass.code || "md-code",
