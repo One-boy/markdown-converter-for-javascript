@@ -9,6 +9,9 @@
     - dest/md.css -- 编译后的样式库
     - demo/* -- 一个demo，点开可以看到效果
 
+- 演示地址：
+[点我看效果](https://one-boy.github.io/markdown/index.html)
+
 ## 二、用法(usage)：
 #### 1.引入dest/md.min.js文件
 #### 2.使用，如下
