@@ -27,7 +27,7 @@ JSWidgets.markdown.converter = function () {
         }
     }
     this.buildToHTML = function (text) {
-        if(typeof text !== "string"){
+        if (typeof text !== "string") {
             return ""
         }
         doSetConfig();
@@ -48,7 +48,7 @@ JSWidgets.markdown.converter = function () {
         text = doTable(text);
         //其余行加p标签
         text = doOther(text);
-        return "<div class='md-body'>"+text+'</div>';
+        return "<div class='md-body'>" + text + '</div>';
 
     }
     //文本每一行开头正则匹配
@@ -56,7 +56,7 @@ JSWidgets.markdown.converter = function () {
     //文本每一行内容正则匹配
     var textContentRegExp = [];
     //配置设置
-    function doSetConfig(){
+    function doSetConfig() {
         HTMLClass = {
             h1: newHTMLClass.h1 || "md-h1",
             h2: newHTMLClass.h2 || "md-h2",
@@ -78,7 +78,7 @@ JSWidgets.markdown.converter = function () {
             bold: newHTMLClass.bold || "md-bold",
             table: newHTMLClass.table || "md-table",
             ul: newHTMLClass.ul || "md-ul",
-            line:newHTMLClass.line || "md-line",
+            line: newHTMLClass.line || "md-line",
             //大段代码中的每一行。
             highLight: newHTMLClass.highLight || "md-high-light",
 
@@ -90,113 +90,113 @@ JSWidgets.markdown.converter = function () {
             completed: newHTMLClass.completed || "md-completed"
 
         }
-    textStartRegExp = [
-        {
-            name: "h1",
-            pattern: /^#{1} (.*)/gm,
-            HTML: "<h1 class='" + HTMLClass.h1 + "'>$1</h1>"
-        },
-        {
-            name: "h2",
-            pattern: /^#{2} (.*)/gm,
-            HTML: "<h2 class='" + HTMLClass.h2 + "'>$1</h2>"
-        },
-        {
-            name: "h3",
-            pattern: /^#{3} (.*)/gm,
-            HTML: "<h3 class='" + HTMLClass.h3 + "'>$1</h3>"
-        },
-        {
-            name: "h4",
-            pattern: /^#{4} (.*)/gm,
-            HTML: "<h4 class='" + HTMLClass.h4 + "'>$1</h4>"
-        },
-        {
-            name: "h5",
-            pattern: /^#{5} (.*)/gm,
-            HTML: "<h5 class='" + HTMLClass.h5 + "'>$1</h5>"
-        },
-        {
-            name: "h6",
-            pattern: /^#{6} (.*)/gm,
-            HTML: "<h6 class='" + HTMLClass.h6 + "'>$1</h6>"
-        },
-        {
-            //引用
-            name: "blockquote",
-            pattern: /^>(.*)/gm,
-            HTML: "<blockquote class='" + HTMLClass.blockquote + "'>$1</blockquote>"
-        },
-        {
-            //分隔线
-            name: "hr",
-            pattern: /^---$/gm,
-            HTML: "<hr class='" + HTMLClass.hr + "'>"
-        }
-    ]
-    textContentRegExp = [
-        {
-            //图片
-            name: "image",
-            pattern: /\!\[(.*)\]\((.*)\)/g,
-            HTML: "<img class='" + HTMLClass.image + "' src='$2' alt='$1' title='$1'>"
-        },
-        {
-            //链接
-            name: "link",
-            pattern: /\[(.*)\]\((.*)\)/g,
-            HTML: "<a href='$2' target='_blank' class='" + HTMLClass.link + "'>$1</a>"
-        },
-        {
-            //加粗，中间内容除了*重复多次
-            name: "bold",
-            pattern: /\*{2}([^\*]*?)\*{2}/g,
-            HTML: "<strong class='" + HTMLClass.bold + "'>$1</strong>"
-        },
-        {
-            //斜体
-            name: "italic",
-            pattern: /\*{1}(.*)\*{1}/g,
-            HTML: "<em class='" + HTMLClass.em + "'>$1</em>"
-        },
-        {
-            //代码块
-            name: "code",
-            pattern: /`(.*?)`/g,
-            HTML: "<code class='" + HTMLClass.code + "'>$1</code>"
-        },
-        {
-            //标记
-            name: "mark",
-            pattern: /==(.*)==/gm,
-            HTML: "<span class='" + HTMLClass.mark + "'>$1</span>"
+        textStartRegExp = [
+            {
+                name: "h1",
+                pattern: /^#{1} (.*)/gm,
+                HTML: "<h1 class='" + HTMLClass.h1 + "'>$1</h1>"
+            },
+            {
+                name: "h2",
+                pattern: /^#{2} (.*)/gm,
+                HTML: "<h2 class='" + HTMLClass.h2 + "'>$1</h2>"
+            },
+            {
+                name: "h3",
+                pattern: /^#{3} (.*)/gm,
+                HTML: "<h3 class='" + HTMLClass.h3 + "'>$1</h3>"
+            },
+            {
+                name: "h4",
+                pattern: /^#{4} (.*)/gm,
+                HTML: "<h4 class='" + HTMLClass.h4 + "'>$1</h4>"
+            },
+            {
+                name: "h5",
+                pattern: /^#{5} (.*)/gm,
+                HTML: "<h5 class='" + HTMLClass.h5 + "'>$1</h5>"
+            },
+            {
+                name: "h6",
+                pattern: /^#{6} (.*)/gm,
+                HTML: "<h6 class='" + HTMLClass.h6 + "'>$1</h6>"
+            },
+            {
+                //引用
+                name: "blockquote",
+                pattern: /^>(.*)/gm,
+                HTML: "<blockquote class='" + HTMLClass.blockquote + "'>$1</blockquote>"
+            },
+            {
+                //分隔线
+                name: "hr",
+                pattern: /^---$/gm,
+                HTML: "<hr class='" + HTMLClass.hr + "'>"
+            }
+        ]
+        textContentRegExp = [
+            {
+                //图片
+                name: "image",
+                pattern: /\!\[(.*)\]\((.*)\)/g,
+                HTML: "<img class='" + HTMLClass.image + "' src='$2' alt='$1' title='$1'>"
+            },
+            {
+                //链接
+                name: "link",
+                pattern: /\[(.*)\]\((.*)\)/g,
+                HTML: "<a href='$2' target='_blank' class='" + HTMLClass.link + "'>$1</a>"
+            },
+            {
+                //加粗，中间内容除了*重复多次
+                name: "bold",
+                pattern: /\*{2}([^\*]*?)\*{2}/g,
+                HTML: "<strong class='" + HTMLClass.bold + "'>$1</strong>"
+            },
+            {
+                //斜体
+                name: "italic",
+                pattern: /\*{1}(.*)\*{1}/g,
+                HTML: "<em class='" + HTMLClass.em + "'>$1</em>"
+            },
+            {
+                //代码块
+                name: "code",
+                pattern: /`(.*?)`/g,
+                HTML: "<code class='" + HTMLClass.code + "'>$1</code>"
+            },
+            {
+                //标记
+                name: "mark",
+                pattern: /==(.*)==/gm,
+                HTML: "<span class='" + HTMLClass.mark + "'>$1</span>"
 
-        },
-        {
-            //下划线
-            name: "underline",
-            pattern: /\+\+(.*)\+\+/gm,
-            HTML: "<span class='" + HTMLClass.underline + "'>$1</span>"
+            },
+            {
+                //下划线
+                name: "underline",
+                pattern: /\+\+(.*)\+\+/gm,
+                HTML: "<span class='" + HTMLClass.underline + "'>$1</span>"
 
-        },
-        {
-            //待办
-            name: "backlog",
-            pattern: /- \[ \](.*)/gm,
-            HTML: "<div class='" + HTMLClass.backlog + "'><input type='checkbox' disabled>$1</div>"
+            },
+            {
+                //待办
+                name: "backlog",
+                pattern: /- \[ \](.*)/gm,
+                HTML: "<div class='" + HTMLClass.backlog + "'><input type='checkbox' disabled>$1</div>"
 
-        },
-        {
-            //已办
-            name: "completed",
-            pattern: /- \[x\](.*)/gm,
-            HTML: "<div class='" + HTMLClass.completed + "'><input type='checkbox' disabled checked>$1</div>"
+            },
+            {
+                //已办
+                name: "completed",
+                pattern: /- \[x\](.*)/gm,
+                HTML: "<div class='" + HTMLClass.completed + "'><input type='checkbox' disabled checked>$1</div>"
 
-        }
+            }
 
-    ]
+        ]
 
-    } 
+    }
     //处理文本中间内容
     function doMidHandler(text) {
         //查找非<xx>开头的行，主要为了不转换<pre>xx</pre>中的内容
@@ -222,9 +222,9 @@ JSWidgets.markdown.converter = function () {
     //表格处理
     function doTable(text) {
         //匹配一串表格
-        var p = /(.*)\|(.*)(\|(.*))*\n(---\|---(\|---)*)\n((.*)\|(.*)(\|(.*))*[\n]{0,})+/gm;
+        var p = /(.*)\|(.*)(\|(.*))*(?:\r\n|\n)(---\|---(\|---)*)(?:\r\n|\n)((.*)\|(.*)(\|(.*))*[(?:\r\n|\n)]{0,})+/gm;
         var result = text.replace(p, function (wholeMatch, m1, m2) {
-            wholeMatch = wholeMatch.split(/[\|\n]/);
+            wholeMatch = wholeMatch.split(/\||\n|\r\n/);
             var result = "<table class='" + HTMLClass.table + "'>"
             var head = "<thead><tr>"
             var body = "<tbody>"
@@ -326,10 +326,10 @@ JSWidgets.markdown.converter = function () {
         return text;
     }
     //其余行加p标签
-    function doOther(text){
+    function doOther(text) {
         //不是\n和<开头的行，加p标签
         var p = /(^[^\n<].*)/gm;
-        text = text.replace(p,"<p class='"+HTMLClass.line+"'>$1</p>");
+        text = text.replace(p, "<p class='" + HTMLClass.line + "'>$1</p>");
         return text;
     }
 }
